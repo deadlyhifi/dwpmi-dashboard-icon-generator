@@ -46,8 +46,7 @@ main {
 .titles h2 {
   text-align: center;
   color: white;
-
-  width: 98%;
+  width: calc(100% - 2px);
   margin: 0 auto;
   padding: 0 4px;
 }
