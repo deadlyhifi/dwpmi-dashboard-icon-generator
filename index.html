@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="reset.css" rel="stylesheet" as="style">
+    <link href="style.css" rel="stylesheet" as="style">
+    <link rel="icon" type="image/svg+xml" href="dwpmi_small.svg" sizes="any">
+    <title>Dashboard Icon Generator</title>
+</head>
+<body>
+    <main>
+        <div class="card">
+            <div class="titles">
+                <h1 id="title-text" contenteditable>Click to edit title</h1>
+                <h2 id="subtitle-text" class="show" contenteditable>Click to edit subtitle</h1>
+            </div>
+            <img src="dwpmi_lozenge.svg" title="DWP MI" class="logo" />
+        </div>
+
+        <section class="controls">
+            <button id="subtitle-button">Toggle Subtitle</button>
+        </section>
+
+
+        <section class="instructions">
+            <!-- Instructions: -->
+
+            <ol>
+                <li>Appointment End to End</li>
+                <li>Kickstart Regional & District</li>
+                <li>Way to Work</li>
+                <li>Weekly/Fortnightly Mandatory Attendance</li>
+                <li>Labour Market Indicators</li>
+                <li>Local Labour Market Intelligence Tool (LLMIT)</li>
+                <li>UC Changes and Overpayments Report</li>
+                <li>Retirement, Bereavement and Care</li>
+                <li>File Load Analysis (FLA)</li>
+                <li>Payment Timeliness (SSG)</li>
+            </ol>
+        </section>
+    </main>
+
+    <script>
+        const titleText = document.getElementById("title-text");
+        const subtitleText = document.getElementById("subtitle-text");
+        const subtitleButton = document.getElementById("subtitle-button");
+
+        titleText.innerHTML = localStorage.getItem("title") || "Click to edit title";
+        subtitleText.innerHTML = localStorage.getItem("subtitle") || "Click to edit subtitle";
+
+        // Store values
+        titleText.addEventListener("keyup", () => {
+            localStorage.setItem("title", titleText.innerHTML);
+        })
+        subtitleText.addEventListener("keyup", () => {
+            localStorage.setItem("subtitle", subtitleText.innerHTML);
+        })
+
+        // Toggle subtitle
+        subtitleButton.addEventListener("click", () => {
+            subtitleText.classList.toggle("show");
+        });
+    </script>
+    
+</body>
+</html>
+
+<!--
+TODO:
+
+Add logo
+Auto resize to fit?
+- text size dropdown?
+Instructions
+click and select all
+favicon
+
+x Save changes to local storage
+    - including substitle display state
+
+x Add subtitle text
+x    - show or hide option?
+-->
