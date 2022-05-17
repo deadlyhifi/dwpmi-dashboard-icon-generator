@@ -19,7 +19,7 @@ main {
 .card {
   width: 300px;
   height: 200px;
-  background-color: rgb(0, 50, 50);
+  background: linear-gradient(rgb(0, 50, 50), rgb(0 79 79));
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -37,6 +37,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  filter: drop-shadow(0px 0px 30px rgb(0, 159, 159));
 }
 
 .titles h1,
@@ -68,6 +69,7 @@ main {
 
 .card img {
   width: 30%;
+  filter: drop-shadow(0px 0px 15px rgb(0, 50, 50));
 }
 
 .controls {
