@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="reset.css" rel="stylesheet" as="style">
-    <link href="style.css" rel="stylesheet" as="style">
-    <link rel="icon" type="image/svg+xml" href="dwpmi_small.svg" sizes="any">
+    <link href="style/reset.css" rel="stylesheet" as="style">
+    <link href="style/style.css" rel="stylesheet" as="style">
+    <link href="img/dwpmi_small.svg" rel="icon" type="image/svg+xml" sizes="any">
+
     <title>Dashboard Icon Generator</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
                 <h1 id="title-text" contenteditable>Click to edit title</h1>
                 <h2 id="subtitle-text" contenteditable>Click to edit subtitle</h1>
             </div>
-            <img src="dwpmi_lozenge.svg" title="DWP MI" class="logo" />
+            <img src="img/dwpmi_lozenge.svg" title="DWP MI" class="logo" />
         </div>
 
         <section class="controls">
@@ -44,10 +45,8 @@
 
     <script>
         function storeData(element, key) {
-            console.log(element, key)
             const doc = new DOMParser().parseFromString(element.innerHTML, 'text/html');
             const content = doc.body.textContent || "";
-            console.log(content);
 
             element.innerHTML = content;
             localStorage.setItem(key, content);
@@ -79,20 +78,3 @@
     </script>
 </body>
 </html>
-
-<!--
-TODO:
-
-Add logo
-Auto resize to fit?
-- text size dropdown?
-Instructions
-click and select all
-favicon
-
-x Save changes to local storage
-    - including substitle display state
-
-x Add subtitle text
-x    - show or hide option?
--->

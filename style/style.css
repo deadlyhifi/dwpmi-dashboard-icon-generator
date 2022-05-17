@@ -46,7 +46,8 @@ main {
 .titles h2 {
   text-align: center;
   color: white;
-  max-width: 100%;
+
+  width: 98%;
   margin: 0 auto;
   padding: 0 4px;
 }
@@ -66,12 +67,11 @@ main {
 .titles h1:focus,
 .titles h2:focus {
   border-radius: 3px;
-  box-shadow: 0 0 10px 0px #d3dcff;
+  outline: 1px solid #2ba197;
 }
 
 .card img {
   width: 30%;
-  /* filter: drop-shadow(0px 0px 15px rgb(0, 50, 50)); */
   filter: drop-shadow(0px 0px 15px rgb(0, 100, 100));
 }
 
