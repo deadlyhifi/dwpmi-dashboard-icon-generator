@@ -10,7 +10,7 @@
 </head>
 <body>
     <main>
-        <div class="card">
+        <div id="capture" class="card">
             <div class="titles">
                 <h1 id="title-text" contenteditable>Click to edit title</h1>
                 <h2 id="subtitle-text" contenteditable>Click to edit subtitle</h2>
@@ -20,8 +20,12 @@
 
         <section class="controls">
             <button id="subtitle-button">Toggle Subtitle</button>
+            <button id="capture-button">Convert to Image</button>
         </section>
 
+        <a  id="result" download="dashboard-icon.png">
+            Download
+        </a>
 
         <section class="instructions">
             <h3>Instructions</h3>
