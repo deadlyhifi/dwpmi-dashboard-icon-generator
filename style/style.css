@@ -1,12 +1,33 @@
-/* :root {
+:root {
+  --body-background-colour: rgb(240, 248, 255);
+  --body-text-colour: rgb(53, 53, 53);
+  --app-background-colour: rgb(223, 240, 255);
+  --dwp-main-colour: #2ba197;
+  --ribbon-colour: transparent;
 
-} */
+  --shadow-color: 209deg 34% 58%;
+  --shadow-elevation: 0px 0.4px 0.5px hsl(var(--shadow-color) / 0.36),
+    0px 1.4px 1.6px -0.8px hsl(var(--shadow-color) / 0.36),
+    0.1px 3.6px 4.1px -1.7px hsl(var(--shadow-color) / 0.36),
+    0.2px 8.7px 9.8px -2.5px hsl(var(--shadow-color) / 0.36);
+}
+
+/* Themes */
+[data-theme="theme-1"] {
+  --ribbon-colour: #dd2200;
+}
+
+[data-theme="theme-2"] {
+  --ribbon-colour: #aa00b6;
+}
 
 html,
 body {
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--body-background-colour);
+  color: var(--body-text-colour);
 }
 
 main {
@@ -14,7 +35,16 @@ main {
   margin: auto;
   max-width: 800px;
   padding: 50px 30px;
-  background-color: aliceblue;
+}
+
+.application {
+  border-radius: 8px;
+  background-color: var(--app-background-colour);
+  box-shadow: var(--shadow-elevation);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .card {
@@ -26,7 +56,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  box-shadow: var(--shadow-elevation);
 
   word-break: break-word;
   overflow: hidden;
@@ -67,22 +97,14 @@ main {
 .titles h1:focus,
 .titles h2:focus {
   border-radius: 3px;
-  outline: 1px solid #2ba197;
+  outline: 1px solid var(--dwp-main-colour);
 }
 
 .card .logo {
   display: flex;
   justify-content: center;
   box-shadow: inset 0px 6px 10px 0px rgb(255 255 255 / 7%);
-}
-
-/* Themes */
-.card[data-theme="standard"] .logo {
-  background-color: #dd2200;
-}
-
-.card[data-theme="another"] .logo {
-  background-color: #aa00b6;
+  background-color: var(--ribbon-colour);
 }
 
 .card .logo img {
@@ -96,24 +118,13 @@ main {
   gap: 20px;
   justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
-}
-
-.theme-select {
-  position: relative;
-}
-
-.theme-select--label {
-  position: absolute;
-  top: calc(-1rem - 4px);
-  font-size: 0.9rem;
 }
 
 button,
 select {
   border-radius: 4px;
   border: 0;
-  background: #2ba197;
+  background: var(--dwp-main-colour);
   padding: 10px 15px;
   color: white;
   cursor: pointer;
@@ -129,6 +140,6 @@ select {
 
 button:focus-visible,
 select:focus-visible {
-  outline: 2px solid #2ba197;
+  outline: 2px solid var(--dwp-main-colour);
   outline-offset: 2px;
 }

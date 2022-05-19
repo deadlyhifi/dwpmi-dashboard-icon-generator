@@ -10,34 +10,33 @@
 </head>
 <body>
     <main>
-        <div id="card" class="card" data-theme="standard">
-            <div class="titles">
-                <h1 id="title-text" contenteditable>Click to edit title</h1>
-                <h2 id="subtitle-text" contenteditable>Click to edit subtitle</h2>
+        <section class="application">
+            <div id="card" class="card" data-theme="standard">  
+                <div class="titles">
+                    <h1 id="title-text" contenteditable>Click to edit title</h1>
+                    <h2 id="subtitle-text" contenteditable>Click to edit subtitle</h2>
+                </div>
+                <div class="logo">
+                    <img src="img/dwpmi_lozenge.svg" alt="DWP MI logo" />
+                </div>
             </div>
-            <div class="logo">
-                <img src="img/dwpmi_lozenge.svg" alt="DWP MI logo" />
-            </div>
-        </div>
-
-        <section class="controls">
-            <div class="theme-select">
-                <label for="theme" class="theme-select--label">Theme:</label>
-                <select name="themes" id="theme">
-                    <option value="standard">Standard</option>
-                    <option value="another">Another</option>
-                    <option value="another-long">A long title that is long</option>
-                </select>
-            </div>
-
-            <button id="subtitle-button">Toggle Subtitle</button>
+            
+            <section class="controls">
+                    <select name="themes" id="theme">
+                        <option value="standard">Standard</option>
+                        <option value="theme-1">The One</option>
+                        <option value="theme-2">Theme Two</option>
+                    </select>
+                
+                <button id="subtitle-button">Toggle Subtitle</button>
+            </section>
+            
+            <section class="controls">
+                <button id="capture-button">Download Image</button>
+            </section>
         </section>
 
-        <section class="controls">
-            <button id="capture-button">Download Image</button>
-        </section>
-
-        <section>
+        <!-- <section>
             <ol>
                 <li>Appointment End to End</li>
                 <li>Kickstart Regional & District</li>
@@ -50,7 +49,7 @@
                 <li>File Load Analysis (FLA)</li>
                 <li>Payment Timeliness (SSG)</li>
             </ol>
-        </section>
+        </section> -->
     </main>
 
     <script type="module" src="/scripts/main.js"></script>
