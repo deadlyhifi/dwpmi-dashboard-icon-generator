@@ -10,7 +10,7 @@
 </head>
 <body>
     <main>
-        <div id="capture" class="card">
+        <div id="card" class="card" data-theme="standard">
             <div class="titles">
                 <h1 id="title-text" contenteditable>Click to edit title</h1>
                 <h2 id="subtitle-text" contenteditable>Click to edit subtitle</h2>
@@ -21,7 +21,15 @@
         </div>
 
         <section class="controls">
+            <label for="theme">Theme:</label>
+            <select name="themes" id="theme">
+                <option value="standard">Standard</option>
+                <option value="another">Another</option>
+            </select>
             <button id="subtitle-button">Toggle Subtitle</button>
+        </section>
+
+        <section class="controls">
             <button href="" id="capture-button">Download Image</button>
         </section>
 

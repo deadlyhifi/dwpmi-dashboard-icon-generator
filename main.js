@@ -19,11 +19,14 @@ function storeData(element, key) {
   localStorage.setItem(key, content);
 }
 
+const card = document.getElementById("card");
 const titleText = document.getElementById("title-text");
 const subtitleText = document.getElementById("subtitle-text");
 const subtitleButton = document.getElementById("subtitle-button");
 const captureButton = document.getElementById("capture-button");
 const subtitleDisplayState = localStorage.getItem("subtitle-show");
+const themeSelecter = document.getElementById("theme");
+const theme = localStorage.getItem("theme") || 'standard';
 
 // Set initial values
 titleText.innerHTML = localStorage.getItem("title") || "Click to edit title";
@@ -44,6 +47,17 @@ subtitleButton.addEventListener("click", () => {
   localStorage.setItem("subtitle-show", newState);
 });
 
+// Theme Select
+function setTheme(newTheme) {
+  card.setAttribute("data-theme", newTheme);
+  themeSelecter.value = newTheme;
+  localStorage.setItem("theme", newTheme);
+}
+
+setTheme(theme);
+themeSelecter.addEventListener("change", () => setTheme(themeSelecter.value));
+
+// Download image
 function download(base64image) {
   const filename = localStorage.getItem("title")
     .toLowerCase()
@@ -60,9 +74,8 @@ function download(base64image) {
   document.body.removeChild(element);
 }
 
-// Download image
-captureButton.addEventListener('click', () => {
-  const screenshotTarget = document.getElementById("capture");
+captureButton.addEventListener("click", () => {
+  const screenshotTarget = document.getElementById("card");
   
   html2canvas(screenshotTarget).then((canvas) => {
       const base64image = canvas.toDataURL("image/png");
