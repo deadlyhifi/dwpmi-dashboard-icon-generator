@@ -12,7 +12,6 @@ const titleText = document.getElementById("title-text");
 const subtitleText = document.getElementById("subtitle-text");
 const subtitleButton = document.getElementById("subtitle-button");
 const captureButton = document.getElementById("capture-button");
-
 const subtitleDisplayState = localStorage.getItem("subtitle-show");
 
 // Set initial values
@@ -34,17 +33,22 @@ subtitleButton.addEventListener("click", () => {
   localStorage.setItem("subtitle-show", newState);
 });
 
-
 function download(base64image) {
-  var element = document.createElement('a');
+  const filename = localStorage.getItem("title")
+    .toLowerCase()
+    .replace(/[^a-zA-Z]+/g, '-') // replace all non word chars with -
+    .replace(/^[^\w+]*/g, '').replace(/[^\w]+$/g, ''); // remove - at start and end
+
+  const element = document.createElement('a');
   element.setAttribute("href", base64image);
-  element.setAttribute("download", "dashboard-icon.png");
+  element.setAttribute("download", `dwpmi-${filename}.png`);
   element.style.display = 'none';
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
 }
 
+// Download image
 captureButton.addEventListener('click', () => {
   const screenshotTarget = document.getElementById("capture");
   
