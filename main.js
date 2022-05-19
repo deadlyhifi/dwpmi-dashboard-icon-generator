@@ -1,10 +1,21 @@
 import html2canvas from "html2canvas";
 
 function storeData(element, key) {
-  const doc = new DOMParser().parseFromString(element.innerHTML, 'text/html');
-  const content = doc.body.textContent || "";
+  // Convert odd spacings to just spaces
+  const string = element.innerHTML
+    .replaceAll('&nbsp;', ' ')
+    .replaceAll('<div>', ' ');
 
+  // Strip HTML tags
+  const doc = new DOMParser().parseFromString(string, 'text/html');
+
+  // Replace multiple spaces to single space
+  const content = doc.body.textContent.replace(/\s+/g, ' ') || "";
+
+  // Write parsed string into page element
   element.innerHTML = content;
+
+  // Store
   localStorage.setItem(key, content);
 }
 
@@ -37,7 +48,8 @@ function download(base64image) {
   const filename = localStorage.getItem("title")
     .toLowerCase()
     .replace(/[^a-zA-Z]+/g, '-') // replace all non word chars with -
-    .replace(/^[^\w+]*/g, '').replace(/[^\w]+$/g, ''); // remove - at start and end
+    .replace(/^[^\w+]*/g, '') // remove - at start
+    .replace(/[^\w]+$/g, ''); // remove - at end
 
   const element = document.createElement('a');
   element.setAttribute("href", base64image);
