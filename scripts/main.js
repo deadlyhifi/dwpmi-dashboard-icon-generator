@@ -6,16 +6,19 @@ const titleText = document.getElementById("title-text");
 const subtitleText = document.getElementById("subtitle-text");
 const subtitleButton = document.getElementById("subtitle-button");
 const captureButton = document.getElementById("capture-button");
-const subtitleDisplayState = localStorage.getItem("subtitle-show");
 const themeSelecter = document.getElementById("theme");
 const theme = localStorage.getItem("theme") || "standard";
+const subtitleDisplayState = () => {
+  const state = localStorage.getItem("subtitle-show");
+  return state === null || state === "true";
+};
 
 // Set initial values
 titleText.innerHTML = localStorage.getItem("title") || "Click to edit title";
 subtitleText.innerHTML =
   localStorage.getItem("subtitle") || "Click to edit subtitle";
 
-if (subtitleDisplayState === "hide") {
+if (!subtitleDisplayState()) {
   subtitleText.classList.add("hide");
 }
 
@@ -28,12 +31,14 @@ subtitleText.addEventListener("focusout", () =>
 );
 
 // Toggle subtitle display
+subtitleButton.setAttribute("aria-pressed", subtitleDisplayState());
 subtitleButton.addEventListener("click", () => {
   subtitleText.classList.toggle("hide");
 
-  const newState =
-    localStorage.getItem("subtitle-show") === "hide" ? "show" : "hide";
-  localStorage.setItem("subtitle-show", newState);
+  const toggleState = !subtitleDisplayState();
+
+  localStorage.setItem("subtitle-show", toggleState);
+  subtitleButton.setAttribute("aria-pressed", toggleState);
 });
 
 // Theme Select

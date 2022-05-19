@@ -16,17 +16,20 @@
                 <h2 id="subtitle-text" contenteditable>Click to edit subtitle</h2>
             </div>
             <div class="logo">
-                <img src="img/dwpmi_lozenge.svg" title="DWP MI" />
+                <img src="img/dwpmi_lozenge.svg" alt="DWP MI logo" />
             </div>
         </div>
 
         <section class="controls">
-            <label for="theme">Theme:</label>
-            <select name="themes" id="theme">
-                <option value="standard">Standard</option>
-                <option value="another">Another</option>
-                <option value="another-long">A long title that is long</option>
-            </select>
+            <div class="theme-select">
+                <label for="theme" class="theme-select--label">Theme:</label>
+                <select name="themes" id="theme">
+                    <option value="standard">Standard</option>
+                    <option value="another">Another</option>
+                    <option value="another-long">A long title that is long</option>
+                </select>
+            </div>
+
             <button id="subtitle-button">Toggle Subtitle</button>
         </section>
 
