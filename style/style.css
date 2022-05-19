@@ -112,6 +112,7 @@ main {
 button,
 select {
   border-radius: 4px;
+  border: 0;
   background: #2ba197;
   padding: 10px 15px;
   color: white;
@@ -119,11 +120,11 @@ select {
 }
 
 select {
-  padding-right: 30px;
+  padding-right: 36px;
   background-image: url("/img/down-arrow.svg");
   background-size: 15px;
   background-repeat: no-repeat;
-  background-position: right 8px top 13px;
+  background-position: right 12px top 13px;
 }
 
 button:focus-visible,
