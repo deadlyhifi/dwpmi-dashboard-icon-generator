@@ -34,15 +34,22 @@ subtitleButton.addEventListener("click", () => {
   localStorage.setItem("subtitle-show", newState);
 });
 
-// TODO - don't show download button until it's ready.
-// NO - turn the Convert to Image button into the download.
+
+function download(base64image) {
+  var element = document.createElement('a');
+  element.setAttribute("href", base64image);
+  element.setAttribute("download", "dashboard-icon.png");
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+}
+
 captureButton.addEventListener('click', () => {
   const screenshotTarget = document.getElementById("capture");
   
   html2canvas(screenshotTarget).then((canvas) => {
       const base64image = canvas.toDataURL("image/png");
-      const result = document.getElementById("result");
-
-      result.setAttribute("href", base64image);
+      download(base64image);
   });
 })

@@ -11,9 +11,6 @@ main {
   max-width: 800px;
   padding: 50px 30px;
   background-color: aliceblue;
-  display: grid;
-  gap: 40px;
-  align-content: center;
 }
 
 .card {
@@ -26,6 +23,7 @@ main {
   justify-content: center;
   align-items: center;
   padding: 15px 10px 20px 10px;
+  margin-bottom: 40px;
 
   word-break: break-word;
   overflow: hidden;
@@ -78,9 +76,7 @@ main {
   display: flex;
   gap: 20px;
   justify-content: center;
-}
-
-.instructions {
+  margin-bottom: 40px;
 }
 
 button {
