@@ -107,26 +107,17 @@ select {
   border-radius: 4px;
   border: 3px solid #2ba197;
   background: #2ba197;
-  padding: 0.6rem 1rem;
+  padding: 10px 15px;
   color: white;
   cursor: pointer;
 }
 
 select {
-  position: relative;
-  display: inline-block;
-}
-select:after {
-  content: " ";
-  height: 0;
-  width: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #f15922;
-  position: absolute;
-  right: 6px;
-  top: 8px;
-  transition: all 0.3s linear;
+  padding-right: 30px;
+  background-image: url("/img/down-arrow.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: right 8px top 13px;
 }
 
 button:focus-visible,

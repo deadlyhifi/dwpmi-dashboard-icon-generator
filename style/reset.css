@@ -10,8 +10,7 @@
     Added select so we still get the down arrow.
  */
 
-*:where(:not(html, iframe, canvas, img, svg, video, select):not(svg *, symbol
-      *)) {
+*:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
   all: unset;
   display: revert;
 }
