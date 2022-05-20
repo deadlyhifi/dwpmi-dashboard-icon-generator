@@ -13,12 +13,12 @@
 }
 
 /* Themes */
-[data-theme="theme-1"] {
-  --ribbon-colour: #dd2200;
+[data-theme="monitoring-performance"] {
+  --ribbon-colour: #00bc55;
 }
 
-[data-theme="theme-2"] {
-  --ribbon-colour: #aa00b6;
+[data-theme="internal"] {
+  --ribbon-colour: tomato;
 }
 
 html,
@@ -109,7 +109,7 @@ main {
 
 .card .ribbon .logo {
   width: 30%;
-  filter: drop-shadow(0px 2px 2px rgb(255 255 255 / 7%));
+  filter: drop-shadow(0px 2px 2px rgb(0 0 0 / 50%));
   transform: translateY(-50%);
 }
 
