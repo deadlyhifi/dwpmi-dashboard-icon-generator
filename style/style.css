@@ -34,17 +34,27 @@ main {
   height: 100%;
   margin: auto;
   max-width: 800px;
-  padding: 50px 30px;
 }
 
 .application {
   border-radius: 8px;
   background-color: var(--app-background-colour);
-  box-shadow: var(--shadow-elevation);
-  padding: 40px;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  padding: 40px 10px;
+}
+
+@media screen and (min-width: 470px) {
+  main {
+    padding: 50px 20px;
+  }
+  
+  .application {
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-elevation);
+  }
 }
 
 .card {
@@ -115,6 +125,7 @@ main {
 
 .controls {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   align-items: center;
