@@ -1,5 +1,10 @@
 import html2canvas from "html2canvas";
-import { storeStringData, downloadImage, setTheme } from "./utils";
+import {
+  storeStringData,
+  generateTitle,
+  downloadImage,
+  setTheme,
+} from "./utils";
 
 const card = document.getElementById("card");
 const titleText = document.getElementById("title-text");
@@ -51,6 +56,6 @@ themeSelecter.addEventListener("change", () =>
 captureButton.addEventListener("click", () => {
   html2canvas(card).then((canvas) => {
     const base64image = canvas.toDataURL("image/png");
-    downloadImage(base64image);
+    downloadImage(base64image, generateTitle());
   });
 });

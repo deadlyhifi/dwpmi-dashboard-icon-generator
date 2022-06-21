@@ -17,17 +17,22 @@ function storeStringData(element, key) {
   localStorage.setItem(key, content);
 }
 
-function downloadImage(base64image) {
-  const filename = localStorage
-    .getItem("title")
-    .toLowerCase()
-    .replace(/[^a-zA-Z]+/g, "-") // replace all non word chars with -
-    .replace(/^[^\w+]*/g, "") // remove - at start
-    .replace(/[^\w]+$/g, ""); // remove - at end
+function generateTitle() {
+  const filename =
+    localStorage.getItem("title") ||
+    "dashboard"
+      .toLowerCase()
+      .replace(/[^a-zA-Z]+/g, "-") // replace all non word chars with -
+      .replace(/^[^\w+]*/g, "") // remove - at start
+      .replace(/[^\w]+$/g, ""); // remove - at end
 
+  return `dwpmi-${filename}.png`;
+}
+
+function downloadImage(base64image, filename) {
   const element = document.createElement("a");
   element.setAttribute("href", base64image);
-  element.setAttribute("download", `dwpmi-${filename}.png`);
+  element.setAttribute("download", filename);
   element.style.display = "none";
   document.body.appendChild(element);
   element.click();
@@ -40,4 +45,4 @@ function setTheme(newTheme, themeSelecter) {
   localStorage.setItem("theme", newTheme);
 }
 
-export { storeStringData, downloadImage, setTheme };
+export { storeStringData, generateTitle, downloadImage, setTheme };
