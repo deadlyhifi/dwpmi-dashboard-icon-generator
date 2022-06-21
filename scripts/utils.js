@@ -8,7 +8,8 @@ function storeStringData(element, key) {
   const doc = new DOMParser().parseFromString(string, "text/html");
 
   // Replace multiple spaces to single space
-  const content = doc.body.textContent.replace(/\s+/g, " ") || "";
+  // const content = doc.body.textContent.replace(/\s+/g, " ") || "";
+  const content = doc.body.textContent || "";
 
   // Write parsed string into page element
   element.innerHTML = content;
@@ -18,13 +19,15 @@ function storeStringData(element, key) {
 }
 
 function generateTitle() {
-  const filename = (
-    (localStorage.getItem("title") || "dashboard") +
-    "-" +
-    (localStorage.getItem("subtitle") || "")
-  )
+  const title = localStorage.getItem("title") || "dashboard";
+  const subtitle =
+    localStorage.getItem("subtitle-show") === "true"
+      ? localStorage.getItem("subtitle")
+      : "";
+
+  const filename = (title + "-" + subtitle)
     .toLowerCase()
-    .replace(/[^a-zA-Z]+/g, "-") // replace all non word chars with -
+    .replace(/[^\w]+/g, "-") // replace all non word chars with -
     .replace(/^[^\w+]*/g, "") // remove - at start
     .replace(/[^\w]+$/g, ""); // remove - at end
 
