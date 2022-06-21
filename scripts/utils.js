@@ -18,7 +18,11 @@ function storeStringData(element, key) {
 }
 
 function generateTitle() {
-  const filename = (localStorage.getItem("title") || "dashboard")
+  const filename = (
+    (localStorage.getItem("title") || "dashboard") +
+    "-" +
+    (localStorage.getItem("subtitle") || "")
+  )
     .toLowerCase()
     .replace(/[^a-zA-Z]+/g, "-") // replace all non word chars with -
     .replace(/^[^\w+]*/g, "") // remove - at start
