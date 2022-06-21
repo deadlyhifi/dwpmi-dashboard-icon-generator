@@ -18,13 +18,11 @@ function storeStringData(element, key) {
 }
 
 function generateTitle() {
-  const filename =
-    localStorage.getItem("title") ||
-    "dashboard"
-      .toLowerCase()
-      .replace(/[^a-zA-Z]+/g, "-") // replace all non word chars with -
-      .replace(/^[^\w+]*/g, "") // remove - at start
-      .replace(/[^\w]+$/g, ""); // remove - at end
+  const filename = (localStorage.getItem("title") || "dashboard")
+    .toLowerCase()
+    .replace(/[^a-zA-Z]+/g, "-") // replace all non word chars with -
+    .replace(/^[^\w+]*/g, "") // remove - at start
+    .replace(/[^\w]+$/g, ""); // remove - at end
 
   return `dwpmi-${filename}.png`;
 }
