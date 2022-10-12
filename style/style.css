@@ -30,8 +30,7 @@ main {
 .card {
   width: 300px;
   height: 200px;
-  background-image: url("/img/card-background.png");
-  background-size: contain;
+  background: url("/img/card-background.png") repeat-x;
   margin: auto;
   display: flex;
   flex-direction: column;
